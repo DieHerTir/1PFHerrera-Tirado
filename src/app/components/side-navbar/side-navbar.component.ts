@@ -14,7 +14,7 @@ export class SideNavbarComponent {
   @ViewChild(TableCharactersComponent) tableCharactersComponent!: TableCharactersComponent;
   numberOfCharacters: number = this.tableCharactersComponent?.dataSource.length
   totalRegistrosHijo = 0;
-  constructor(private zone: NgZone, private dialog: MatDialog) {}
+  constructor(private zone: NgZone, private dialog: MatDialog) { }
 
   actualizarTotalRegistros(total: number) {
     this.zone.run(() => {
@@ -25,18 +25,18 @@ export class SideNavbarComponent {
   }
   addCharacter() {
     const dialogRef = this.dialog.open(ModalFormComponent, {
-      width: '800px', 
-      data: { action:0 }
+      width: '800px',
+      data: { action: 0 }
     });
-  
-    
+
+
     dialogRef.afterClosed().subscribe((result: any) => {
-      if(result){
+      if (result) {
 
         console.log('El modal se cerró', result);
         this.newCharacter = result
       }
-     
+
     });
 
   }
