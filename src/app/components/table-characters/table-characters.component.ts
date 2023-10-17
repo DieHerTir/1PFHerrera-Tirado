@@ -55,8 +55,8 @@ export class TableCharactersComponent implements OnInit {
   }
   mostrarLoader() {
     const dialogRef = this.dialog.open(LoaderComponent, {
-      disableClose: true, // Evita que el usuario pueda cerrar el modal haciendo clic fuera
-      panelClass: 'custom-loader-dialog', // Clase de CSS personalizada para el modal de carga
+      disableClose: true, 
+      panelClass: 'custom-loader-dialog', 
     });
 
 
@@ -104,7 +104,7 @@ export class TableCharactersComponent implements OnInit {
    let edit= this.dataSource.find((personaje) => personaje.id === id);
    console.log(edit)
    const dialogRef = this.dialog.open(ModalFormComponent, {
-    width: '800px', // Ancho del modal
+    width: '800px', 
     data: { action:1,character:edit }
   });
 

@@ -25,7 +25,7 @@ export class SideNavbarComponent {
   }
   addCharacter() {
     const dialogRef = this.dialog.open(ModalFormComponent, {
-      width: '800px', // Ancho del modal
+      width: '800px', 
       data: { action:0 }
     });
   
@@ -38,9 +38,7 @@ export class SideNavbarComponent {
       }
      
     });
-    // let addObject = { id: 25, nombre: "Bubu", raza: "Hámster Gigante", clase: "Mascota", region: "Baldur's Gate", principalStat: "Carisma" }
-    // console.log(addObject)
-    // this.newCharacter = addObject
+
   }
 
 
