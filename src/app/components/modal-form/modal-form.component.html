@@ -1,0 +1,82 @@
+<mat-toolbar color="primary">
+  <h1 *ngIf="data.action == 0">Crear personaje</h1>
+  <h1 *ngIf="data.action != 0">Editar personaje</h1>
+</mat-toolbar>
+<mat-card class="example-card">
+  <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+    <mat-card-content>
+      <div class="row my-2">
+        <div class="col-4 px-2">
+          <mat-form-field>
+            <input matInput formControlName="nombre" placeholder="Nombre" />
+            <mat-error *ngIf="characterForm?.get('nombre')?.hasError('required')">El nombre es obligatorio.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field>
+            <mat-label>Raza</mat-label>
+            <mat-select formControlName="raza">
+              <mat-option value="Humano">Humano</mat-option>
+              <mat-option value="Elfo">Elfo</mat-option>
+              <mat-option value="Enano">Enano</mat-option>
+              <mat-option value="Mediano">Mediano</mat-option>
+              <mat-option value="Gnomo">Gnomo</mat-option>
+              <mat-option value="Semiorco">Semiorco</mat-option>
+              <mat-option value="Dragonborn">Dragonborn</mat-option>
+              <mat-option value="Tiefling">Tiefling</mat-option>
+              <mat-option value="Aarakocra">Aarakocra</mat-option>
+              <mat-option value="Genasi">Genasi</mat-option>
+            </mat-select>
+            <mat-error *ngIf="characterForm?.get('raza')?.hasError('required')">La raza es obligatoria.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field>
+            <mat-label>Clase</mat-label>
+            <mat-select formControlName="clase">
+              <mat-option value="Guerrero">Guerrero</mat-option>
+              <mat-option value="Pícaro">Pícaro</mat-option>
+              <mat-option value="Mago">Mago</mat-option>
+              <mat-option value="Clérigo">Clérigo</mat-option>
+              <mat-option value="Bardo">Bardo</mat-option>
+              <mat-option value="Druida">Druida</mat-option>
+              <mat-option value="Hechicero">Hechicero</mat-option>
+              <mat-option value="Paladín">Paladín</mat-option>
+              <mat-option value="Ranger">Ranger</mat-option>
+              <mat-option value="Brujo">Brujo</mat-option>
+              <mat-option value="Bárbaro">Bárbaro</mat-option>
+              <mat-option value="Monje">Monje</mat-option>
+            </mat-select>
+            <mat-error *ngIf="characterForm?.get('clase')?.hasError('required')">La clase es obligatoria.</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+      <mat-form-field>
+        <input matInput formControlName="region" placeholder="Región" />
+        <mat-error *ngIf="characterForm?.get('region')?.hasError('required')">La región es obligatoria.</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-4">
+      <mat-form-field>
+        <mat-label>Estadística Principal</mat-label>
+        <mat-select formControlName="principalStat">
+          <mat-option value="Fuerza">Fuerza</mat-option>
+          <mat-option value="Destreza">Destreza</mat-option>
+          <mat-option value="Constitución">Constitución</mat-option>
+          <mat-option value="Inteligencia">Inteligencia</mat-option>
+          <mat-option value="Sabiduría">Sabiduría</mat-option>
+          <mat-option value="Carisma">Carisma</mat-option>
+        </mat-select>
+        <mat-error *ngIf="characterForm?.get('principalStat')?.hasError('required')">La estadística principal es obligatoria.</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-4 my-3">
+      <button mat-raised-button type="submit">Guardar</button>
+      <button mat-raised-button type="button" class="mx-2" color="primary" (click)="closeModal()">Cancelar</button>
+    </div>
+    </div>
+    </mat-card-content>
+  </form>
+</mat-card>

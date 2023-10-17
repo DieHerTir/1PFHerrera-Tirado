@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h1 >Tabla de personajes</h1>
+      <h2 class="position-absolute  end-0">Total:{{totalRegistrosHijo}}</h2>
+
+  </mat-toolbar>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+  
+     
+      <button (click)="addCharacter()" mat-raised-button>
+        Añadir nuevo personaje 
+      </button>
+    </mat-drawer>
+  
+    <div>
+        <app-table-characters [newCharacter]="newCharacter" (totalRegistros)="actualizarTotalRegistros($event)"></app-table-characters>
+    </div>
+  
+  </mat-drawer-container>
