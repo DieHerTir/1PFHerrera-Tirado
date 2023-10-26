@@ -4,7 +4,16 @@ import { AlertServiceService } from 'src/app/services/alert-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoaderComponent } from '../loader/loader.component';
 import { ModalFormComponent } from '../modal-form/modal-form.component';
+import { CharactersService } from '../../services/characters-service.service';
+import { Observable } from 'rxjs';
 
+export interface Character{
+  id:number,
+  clase: string, 
+  raza: string, 
+  region: string,
+  principalStat: string
+}
 @Component({
   selector: 'app-table-characters',
   templateUrl: './table-characters.component.html',
@@ -14,11 +23,16 @@ export class TableCharactersComponent implements OnInit {
   displayedColumns: string[] = ['Nombre', 'Raza', 'Clase', 'stat', 'acciones'];
   dataSource = CHARACTERS;
   loader = false
-  total = this.dataSource.length
+  total = this.dataSource.length;
+  characters$!:Observable<Character[]>
   @Input() newCharacter: any;
   @Output() totalRegistros = new EventEmitter<number>();
-  constructor(public alert: AlertServiceService, private cdr: ChangeDetectorRef, private dialog: MatDialog) {
-
+  constructor(public alert: AlertServiceService, 
+    private cdr: ChangeDetectorRef, 
+    private dialog: MatDialog, 
+    private characterService:CharactersService ) {
+      this.characters$ = this.characterService.getCharacters()
+      console.log(this.characters$)
   }
   ngOnInit() {
     const total = this.dataSource.length;
@@ -105,6 +119,7 @@ export class TableCharactersComponent implements OnInit {
     console.log(edit)
     const dialogRef = this.dialog.open(ModalFormComponent, {
       width: '800px',
+      disableClose: true,
       data: { action: 1, character: edit }
     });
 
