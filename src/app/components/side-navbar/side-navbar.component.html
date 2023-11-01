@@ -21,7 +21,8 @@
     </mat-drawer>
   
     <div>
-        <app-table-characters [newCharacter]="newCharacter" (totalRegistros)="actualizarTotalRegistros($event)"></app-table-characters>
+        <!-- <app-table-characters [newCharacter]="newCharacter" (totalRegistros)="actualizarTotalRegistros($event)"></app-table-characters> -->
+        <router-outlet ></router-outlet>
     </div>
   
   </mat-drawer-container>

@@ -1,7 +1,7 @@
 
 <mat-spinner *ngIf="loader" class="example-sidenav-content"></mat-spinner>
 
-<table *ngIf="!loader" mat-table [dataSource]="(characters$|async)||[]" class="mat-elevation-z8">
+<table *ngIf="!loader" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     
     <ng-container matColumnDef="Nombre">
@@ -38,5 +38,7 @@
     <tr   mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  
+  <button (click)="addCharacter()" mat-raised-button>
+    Añadir nuevo personaje 
+  </button>
   

@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoaderComponent } from '../loader/loader.component';
 import { ModalFormComponent } from '../modal-form/modal-form.component';
 import { CharactersService } from '../../services/characters-service.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 export interface Character{
   id:number,
@@ -21,10 +21,11 @@ export interface Character{
 })
 export class TableCharactersComponent implements OnInit {
   displayedColumns: string[] = ['Nombre', 'Raza', 'Clase', 'stat', 'acciones'];
-  dataSource = CHARACTERS;
+  dataSource!:Character[]
   loader = false
-  total = this.dataSource.length;
+  total = 0;
   characters$!:Observable<Character[]>
+  characters!: Character[]
   @Input() newCharacter: any;
   @Output() totalRegistros = new EventEmitter<number>();
   constructor(public alert: AlertServiceService, 
@@ -32,12 +33,15 @@ export class TableCharactersComponent implements OnInit {
     private dialog: MatDialog, 
     private characterService:CharactersService ) {
       this.characters$ = this.characterService.getCharacters()
-      console.log(this.characters$)
+        this.characters$.subscribe(data => {
+      this.characters = data; 
+      this.dataSource = data
+    });
+    
   }
   ngOnInit() {
     const total = this.dataSource.length;
     this.totalRegistros.emit(total);
-
   }
   ngOnChanges(changes: SimpleChanges) {
     if ('newCharacter' in changes) {
@@ -47,6 +51,7 @@ export class TableCharactersComponent implements OnInit {
         let aux = this.dataSource.slice();
         newCharacter.id = this.generateNewId(aux)
         aux.push(newCharacter);
+        this.characters.push(newCharacter);
         const dialogRef = this.dialog.open(LoaderComponent, {
           disableClose: true,
           panelClass: 'custom-loader-dialog',
@@ -55,13 +60,9 @@ export class TableCharactersComponent implements OnInit {
           dialogRef.close();
           this.dataSource = aux;
           this.cdr.detectChanges()
-          this.total = this.dataSource.length
+          this.total = this.characters.length
           this.totalRegistros.emit(this.total);
-
         }, 300);
-
-
-
       }
 
     }
@@ -103,10 +104,12 @@ export class TableCharactersComponent implements OnInit {
         });
         setTimeout(() => {
           const INDEX = this.dataSource.findIndex(character => character.id === id);
-
           if (INDEX !== -1) {
-            this.dataSource.splice(INDEX, 1);
+           let aux= this.dataSource.filter(character => character.id !== id);
+            this.dataSource = aux
+            this.cdr.detectChanges()
             this.total = this.dataSource.length
+            this.totalRegistros.emit(this.total);
           }
           dialogRef.close()
           this.alert.success()
@@ -141,4 +144,25 @@ export class TableCharactersComponent implements OnInit {
       console.log(this.dataSource)
     });
   }
+  addCharacter() {
+    const dialogRef = this.dialog.open(ModalFormComponent, {
+      width: '800px',
+      disableClose: true,
+      data: { action: 0 }
+    });
+
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {       
+        this.newCharacter = result
+        let aux = this.dataSource
+        aux.push(this.newCharacter)
+        this.dataSource = aux
+        this.cdr.detectChanges()
+     
+      }
+    });
+
+  }
+
 }

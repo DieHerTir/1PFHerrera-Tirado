@@ -24,17 +24,6 @@ export class SideNavbarComponent implements OnDestroy {
       next:(v)=>{this.counter = v},
 
     })
-    this.notificationSubscription = this.charactersService.getNotifications().pipe(
-  filter((n) => n % 10 === 0), 
-  map( (n) => "El segundo observable se ha ejecutado " + n + " veces"),
-  take(3)
-    
-
-    ).subscribe({
-      next:(n)=>{alert(n)}
-    })
-
-
   }
   ngOnDestroy(): void {
     if (this.counterSubscription) {
