@@ -5,3 +5,10 @@
     justify-content: center;
   }
 
+  .button-corner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+    z-index: 999; 
+    border-radius: 100px;
+  }

@@ -13,62 +13,27 @@ import { filter, map, Subscription, take } from 'rxjs';
 export class SideNavbarComponent implements OnDestroy {
   showFiller = false;
   newCharacter: any
-  counter:number =0
-  counterSubscription!:Subscription
-  notificationSubscription!:Subscription
+  counter: number = 0
+  counterSubscription!: Subscription
+  notificationSubscription!: Subscription
   @ViewChild(TableCharactersComponent) tableCharactersComponent!: TableCharactersComponent;
   numberOfCharacters: number = this.tableCharactersComponent?.dataSource.length
   totalRegistrosHijo = 0;
-  constructor(private zone: NgZone, private dialog: MatDialog, private charactersService:CharactersService) { 
- this.counterSubscription =   this.charactersService.getSeconds().subscribe({
-      next:(v)=>{this.counter = v},
+  constructor(private zone: NgZone, private dialog: MatDialog, private charactersService: CharactersService) {
+    this.counterSubscription = this.charactersService.getSeconds().subscribe({
+      next: (v) => { this.counter = v },
 
     })
   }
   ngOnDestroy(): void {
     if (this.counterSubscription) {
-      this.counterSubscription.unsubscribe(); 
+      this.counterSubscription.unsubscribe();
     }
-    if(this.notificationSubscription)
-        this.notificationSubscription.unsubscribe();
+    if (this.notificationSubscription)
+      this.notificationSubscription.unsubscribe();
   }
 
-  actualizarTotalRegistros(total: number) {
-    if (this.counterSubscription) {
-      this.counterSubscription.unsubscribe(); // Cancela la suscripción actual.
 
-      this.zone.run(() => {
-        setTimeout(() => {
-          this.totalRegistrosHijo = total;
-        });
-      });
-
-      
-      this.counterSubscription = this.charactersService.getSeconds().subscribe({
-        next: (v) => {
-          this.counter = v;
-        },
-      });
-    }
-  }
-  addCharacter() {
-    const dialogRef = this.dialog.open(ModalFormComponent, {
-      width: '800px',
-      disableClose: true,
-      data: { action: 0 }
-    });
-
-
-    dialogRef.afterClosed().subscribe((result: any) => {
-      if (result) {
-
-        console.log('El modal se cerró', result);
-        this.newCharacter = result
-      }
-
-    });
-
-  }
 
 
 }

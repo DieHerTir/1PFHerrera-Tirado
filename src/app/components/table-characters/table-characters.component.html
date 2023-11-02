@@ -1,6 +1,8 @@
 
 <mat-spinner *ngIf="loader" class="example-sidenav-content"></mat-spinner>
-
+<mat-toolbar>
+  <span>Personajes</span>
+</mat-toolbar>
 <table *ngIf="!loader" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     
@@ -38,7 +40,7 @@
     <tr   mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <button (click)="addCharacter()" mat-raised-button>
-    Añadir nuevo personaje 
+  <button class="button-corner" (click)="addCharacter()"  color="accent" mat-raised-button>
+    <mat-icon>person_add</mat-icon>
   </button>
   

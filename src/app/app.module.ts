@@ -21,6 +21,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { LoaderComponent } from './components/loader/loader.component';
+import { RegionsComponent } from './components/regions/regions.component';
+import { ClassesComponent } from './components/classes/classes.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     SideNavbarComponent,
     ModalFormComponent,
     LoaderComponent,
+    RegionsComponent,
+    ClassesComponent,
 
   ],
   imports: [
@@ -47,7 +51,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { NamePipe } from 'src/app/utils/pipes/name.pipe';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -19,6 +20,7 @@ import { NamePipe } from 'src/app/utils/pipes/name.pipe';
     MatProgressSpinnerModule,
     MatButtonModule,
     MatSelectModule,
+    MatToolbarModule
     
   ],
   exports:[

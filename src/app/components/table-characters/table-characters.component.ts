@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output, SimpleChanges, OnInit } from '@angular/core';
-import { CHARACTERS } from 'src/app/models/characters';
+
 import { AlertServiceService } from 'src/app/services/alert-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoaderComponent } from '../loader/loader.component';
@@ -137,7 +137,7 @@ export class TableCharactersComponent implements OnInit {
           aux[index] = result;
           this.dataSource = aux;
           this.cdr.detectChanges()
-
+          this.alert.success()
         }
 
       }
@@ -154,12 +154,13 @@ export class TableCharactersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {       
-        this.newCharacter = result
-        let aux = this.dataSource
+        this.newCharacter = result;
+        let aux = this.dataSource.slice();
         aux.push(this.newCharacter)
-        this.dataSource = aux
-        this.cdr.detectChanges()
-     
+        this.dataSource = aux 
+        this.cdr.detectChanges(); 
+        dialogRef.close();
+        this.alert.success()
       }
     });
 

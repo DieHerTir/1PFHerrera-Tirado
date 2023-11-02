@@ -1,28 +1,27 @@
 <mat-toolbar color="primary">
-    <button type="button" mat-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <div class="row">
-        <div class="col"> <h1 >Tabla de personajes ||</h1> </div>
-        <div class="col"><h3>Segundos sin actualización: {{counter}}</h3></div>
-      </div>
-     <hr>
-   
-      <h2 class="position-absolute  end-0">Total:{{totalRegistrosHijo}}</h2>
-
-  </mat-toolbar>
-<mat-drawer-container autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-  
-     
-      <button (click)="addCharacter()" mat-raised-button>
-        Añadir nuevo personaje 
-      </button>
-    </mat-drawer>
-  
-    <div>
-        <!-- <app-table-characters [newCharacter]="newCharacter" (totalRegistros)="actualizarTotalRegistros($event)"></app-table-characters> -->
-        <router-outlet ></router-outlet>
+  <button type="button" mat-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="row">
+    <div class="col"><h1>Segunda entrega proyecto</h1></div>
+    <div class="col">
+      <h3>Segundos en la aplicación: {{ counter }}</h3>
     </div>
-  
-  </mat-drawer-container>
+  </div>
+  <hr />
+</mat-toolbar>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    
+    <ul>
+      <li><button mat-button routerLink="/table">Personajes</button></li>
+      <li><button mat-button routerLink="/regions">Regiones</button></li>
+      <li><button mat-button routerLink="/classes" >Clases</button></li>
+    </ul>
+  </mat-drawer>
+
+  <div>
+    <!-- <app-table-characters [newCharacter]="newCharacter" (totalRegistros)="actualizarTotalRegistros($event)"></app-table-characters> -->
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
