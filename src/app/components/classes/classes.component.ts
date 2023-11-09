@@ -13,8 +13,8 @@ export interface Classes{
 })
 export class ClassesComponent {
   displayedColumns: string[] = ['nombre', 'tipo', 'descripcion'];
-  classe$!:Observable<Classes[]>
-  classes!:Classes[]
+  classe$!:Observable<Object>
+  classes!:any
   loader =false
   constructor(ClassesService:ClassesService){
     this.classe$ = ClassesService.getClasses()

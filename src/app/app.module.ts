@@ -9,7 +9,6 @@ import { NgIf } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { TableCharactersComponent } from './components/table-characters/table-characters.component';
 import { MatTableModule } from '@angular/material/table';
 import { ModalFormComponent } from './components/modal-form/modal-form.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -23,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { LoaderComponent } from './components/loader/loader.component';
 import { RegionsComponent } from './components/regions/regions.component';
 import { ClassesComponent } from './components/classes/classes.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { ClassesComponent } from './components/classes/classes.component';
     LoaderComponent,
     RegionsComponent,
     ClassesComponent,
+    LoginComponent,
 
   ],
   imports: [

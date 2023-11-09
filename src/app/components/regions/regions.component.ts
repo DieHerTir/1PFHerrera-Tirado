@@ -13,8 +13,8 @@ export interface regionsFic{
 })
 export class RegionsComponent {
   displayedColumns: string[] = ['nombre', 'clima', 'plano', 'ubicacion'];
-  regions$!:Observable<regionsFic[]>
-  regions!: regionsFic[]
+  regions$!:Observable<Object>
+  regions!: any
   loader:boolean =false
   constructor(regionService:RegionService){
       this.regions$  = regionService.getRegions()

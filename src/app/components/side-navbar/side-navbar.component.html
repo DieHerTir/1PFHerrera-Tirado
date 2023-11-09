@@ -14,14 +14,16 @@
   <mat-drawer #drawer class="example-sidenav" mode="side">
     
     <ul>
-      <li><button mat-button routerLink="/table">Personajes</button></li>
-      <li><button mat-button routerLink="/regions">Regiones</button></li>
-      <li><button mat-button routerLink="/classes" >Clases</button></li>
+      <li><button mat-button routerLink="/dashboard/table">Personajes</button></li>
+      <li><button mat-button routerLink="/dashboard/regions">Regiones</button></li>
+      <li><button mat-button routerLink="/dashboard/classes" >Clases</button></li>
+      
     </ul>
+    <button mat-raised-button color="primary" (click)="logout()" >Cerrar sesión</button>
   </mat-drawer>
 
   <div>
-    <!-- <app-table-characters [newCharacter]="newCharacter" (totalRegistros)="actualizarTotalRegistros($event)"></app-table-characters> -->
+
     <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

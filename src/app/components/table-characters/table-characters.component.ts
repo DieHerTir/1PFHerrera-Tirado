@@ -19,13 +19,13 @@ export interface Character{
   templateUrl: './table-characters.component.html',
   styleUrls: ['./table-characters.component.scss']
 })
-export class TableCharactersComponent implements OnInit {
+export class TableCharactersComponent {
   displayedColumns: string[] = ['Nombre', 'Raza', 'Clase', 'stat', 'acciones'];
-  dataSource!:Character[]
+  dataSource!:any
   loader = false
   total = 0;
-  characters$!:Observable<Character[]>
-  characters!: Character[]
+  characters$!:Observable<Object>
+  characters!: any
   @Input() newCharacter: any;
   @Output() totalRegistros = new EventEmitter<number>();
   constructor(public alert: AlertServiceService, 
@@ -34,15 +34,13 @@ export class TableCharactersComponent implements OnInit {
     private characterService:CharactersService ) {
       this.characters$ = this.characterService.getCharacters()
         this.characters$.subscribe(data => {
+          console.log(data)
       this.characters = data; 
       this.dataSource = data
     });
     
   }
-  ngOnInit() {
-    const total = this.dataSource.length;
-    this.totalRegistros.emit(total);
-  }
+  
   ngOnChanges(changes: SimpleChanges) {
     if ('newCharacter' in changes) {
       const newCharacter = changes['newCharacter'].currentValue;
@@ -103,22 +101,31 @@ export class TableCharactersComponent implements OnInit {
           panelClass: 'custom-loader-dialog',
         });
         setTimeout(() => {
-          const INDEX = this.dataSource.findIndex(character => character.id === id);
-          if (INDEX !== -1) {
-           let aux= this.dataSource.filter(character => character.id !== id);
-            this.dataSource = aux
-            this.cdr.detectChanges()
-            this.total = this.dataSource.length
-            this.totalRegistros.emit(this.total);
-          }
+         
           dialogRef.close()
+          this.characterService.deleteCharacter(id).subscribe({
+            next: (response) => {
+              const INDEX = this.dataSource.findIndex((character:any) => character.id === id);
+              if (INDEX !== -1) {
+               let aux= this.dataSource.filter((character:any) => character.id !== id);
+                this.dataSource = aux
+                this.cdr.detectChanges()
+              
+                this.totalRegistros.emit(this.total);
+              }
+              this.alert.success()
+            },
+            error: (error) => {
+            this.alert.genericSwal("Error","algo salió mal con la petición","error")
+            },
+          });
           this.alert.success()
         }, 500);
       }
     })
   }
   editCharacter(id: number): void {
-    let edit = this.dataSource.find((personaje) => personaje.id === id);
+    let edit = this.dataSource.find((personaje:any) => personaje.id === id);
     console.log(edit)
     const dialogRef = this.dialog.open(ModalFormComponent, {
       width: '800px',
@@ -129,15 +136,20 @@ export class TableCharactersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-
-        const index = this.dataSource.findIndex((personaje) => personaje.id === id);
+       
+        const index = this.dataSource.findIndex((personaje:any) => personaje.id === id);
         if (index !== -1) {
-          let aux = this.dataSource.slice();
-          result.id = id
-          aux[index] = result;
-          this.dataSource = aux;
-          this.cdr.detectChanges()
-          this.alert.success()
+          this.characterService.updateCharacter(result,id).subscribe({next:(response)=>{
+            let aux = this.dataSource.slice();
+            result.id = id
+            aux[index] = result;
+            this.dataSource = aux;
+            this.cdr.detectChanges()
+            this.alert.success()
+          },error:()=>{
+            this.alert.genericSwal("Error","Ha ocurrido un error con la petición","error")
+          }})
+         
         }
 
       }
@@ -154,13 +166,21 @@ export class TableCharactersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {       
-        this.newCharacter = result;
-        let aux = this.dataSource.slice();
-        aux.push(this.newCharacter)
-        this.dataSource = aux 
-        this.cdr.detectChanges(); 
-        dialogRef.close();
-        this.alert.success()
+        this.characterService.addCharacter(result).subscribe({
+          next: (response) => {
+            this.newCharacter = result;
+            let aux = this.dataSource.slice();
+            aux.push(this.newCharacter)
+            this.dataSource = aux 
+            this.cdr.detectChanges(); 
+            dialogRef.close();
+            this.alert.success()
+          },
+          error: (error) => {
+          this.alert.genericSwal("Error","algo salió mal con la petición","error")
+          },
+        });
+     
       }
     });
 

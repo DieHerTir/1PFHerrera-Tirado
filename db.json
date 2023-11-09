@@ -1,0 +1,419 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "user": "usuario",
+      "password": "contraseña"
+    }
+  ],
+  "characters": [
+    {
+      "id": 2,
+      "nombre": "Imoen",
+      "clase": "Pícaro",
+      "raza": "Humano",
+      "region": "Candlekeep",
+      "principalStat": "Destreza"
+    },
+    {
+      "id": 3,
+      "nombre": "Viconia",
+      "clase": "Clérigo",
+      "raza": "Elfa Drow",
+      "region": "Drow",
+      "principalStat": "Sabiduría"
+    },
+    {
+      "id": 4,
+      "nombre": "Jaheira",
+      "clase": "Druida",
+      "raza": "Humano",
+      "region": "Amn",
+      "principalStat": "Sabiduría"
+    },
+    {
+      "id": 5,
+      "nombre": "Edwin",
+      "clase": "Mago",
+      "raza": "Humano",
+      "region": "Thay",
+      "principalStat": "Inteligencia"
+    },
+    {
+      "id": 6,
+      "nombre": "Khalid",
+      "clase": "Guerrero",
+      "raza": "Humano",
+      "region": "Candlekeep",
+      "principalStat": "Fuerza"
+    },
+    {
+      "id": 7,
+      "nombre": "Dynaheir",
+      "clase": "Maga",
+      "raza": "Humano",
+      "region": "Rashemen",
+      "principalStat": "Inteligencia"
+    },
+    {
+      "id": 8,
+      "nombre": "Kivan",
+      "clase": "Explorador",
+      "raza": "Elfo",
+      "region": "Bosque de Chionthar",
+      "principalStat": "Destreza"
+    },
+    {
+      "id": 9,
+      "nombre": "Alora",
+      "clase": "Pícaro",
+      "raza": "Gnomo",
+      "region": "Ciudad de Baldur",
+      "principalStat": "Carisma"
+    },
+    {
+      "id": 10,
+      "nombre": "Xan",
+      "clase": "Mago",
+      "raza": "Humano",
+      "region": "Rashemen",
+      "principalStat": "Inteligencia"
+    },
+    {
+      "id": 11,
+      "nombre": "Baeloth",
+      "clase": "Hechicero",
+      "raza": "Humano",
+      "region": "Zakharan",
+      "principalStat": "Carisma"
+    },
+    {
+      "id": 12,
+      "nombre": "Voghiln",
+      "clase": "Bardo",
+      "raza": "Humano",
+      "region": "Calimshan",
+      "principalStat": "Carisma"
+    },
+    {
+      "id": 13,
+      "nombre": "Shar-Teel",
+      "clase": "Guerrero",
+      "raza": "Humano",
+      "region": "Ciudad de Baldur",
+      "principalStat": "Fuerza"
+    },
+    {
+      "id": 14,
+      "nombre": "Safana",
+      "clase": "Pícaro",
+      "raza": "Humano",
+      "region": "Ciudad de Baldur",
+      "principalStat": "Destreza"
+    },
+    {
+      "id": 15,
+      "nombre": "Tiax",
+      "clase": "Hechicero",
+      "raza": "Humano",
+      "region": "Thay",
+      "principalStat": "Carisma"
+    },
+    {
+      "id": 16,
+      "nombre": "Coran",
+      "clase": "Pícaro",
+      "raza": "Elfo",
+      "region": "Bosque de Chionthar",
+      "principalStat": "Destreza"
+    },
+    {
+      "id": 17,
+      "nombre": "Xzar",
+      "clase": "Nigromante",
+      "raza": "Humano",
+      "region": "Candlekeep",
+      "principalStat": "Inteligencia"
+    },
+    {
+      "id": 18,
+      "nombre": "Montaron",
+      "clase": "Pícaro",
+      "raza": "Enano",
+      "region": "Candlekeep",
+      "principalStat": "Destreza"
+    },
+    {
+      "id": 19,
+      "nombre": "Dorn Il-Khan",
+      "clase": "Paladín",
+      "raza": "Mediano",
+      "region": "Rashemen",
+      "principalStat": "Fuerza"
+    },
+    {
+      "id": 20,
+      "nombre": "Branwen",
+      "clase": "Clérigo",
+      "raza": "Humano",
+      "region": "Rashemen",
+      "principalStat": "Sabiduría"
+    },
+    {
+      "id": 21,
+      "nombre": "Xzar",
+      "clase": "Nigromante",
+      "raza": "Humano",
+      "region": "Candlekeep",
+      "principalStat": "Inteligencia"
+    },
+    {
+      "id": 22,
+      "nombre": "Garrick",
+      "clase": "Bardo",
+      "raza": "Humano",
+      "region": "Nashkel",
+      "principalStat": "Carisma"
+    },
+    {
+      "id": 23,
+      "nombre": "Neera",
+      "clase": "Hechicero",
+      "raza": "Humano",
+      "region": "Amn",
+      "principalStat": "Carisma"
+    },
+    {
+      "id": 24,
+      "nombre": "Kagain",
+      "clase": "Guerrero",
+      "raza": "Enano",
+      "region": "Ciudad de Baldur",
+      "principalStat": "Fuerza"
+    },
+    {
+      "id": 25,
+      "nombre": "chatbyc",
+      "raza": "Enano",
+      "clase": "Clérigo",
+      "region": "Baldur's Gate",
+      "principalStat": "Carisma"
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "nombre": "Mago",
+      "tipo": "Mágica",
+      "descripcion": "Los magos son lanzadores de hechizos poderosos que utilizan magia para dañar a sus enemigos y controlar la realidad a su alrededor."
+    },
+    {
+      "id": 2,
+      "nombre": "Guerrero",
+      "tipo": "Física",
+      "descripcion": "Los guerreros son expertos en el combate cuerpo a cuerpo, utilizan armaduras pesadas y armas letales para enfrentar a sus enemigos."
+    },
+    {
+      "id": 3,
+      "nombre": "Pícaro",
+      "tipo": "Física",
+      "descripcion": "Los pícaros son maestros del sigilo y la astucia. Se especializan en el combate a corta distancia y en el robo de tesoros."
+    },
+    {
+      "id": 4,
+      "nombre": "Cazador",
+      "tipo": "Física a distancia",
+      "descripcion": "Los cazadores son arqueros expertos que utilizan arcos y trampas para eliminar a sus presas desde lejos."
+    },
+    {
+      "id": 5,
+      "nombre": "Sacerdote",
+      "tipo": "Mágica",
+      "descripcion": "Los sacerdotes son curanderos y lanzadores de hechizos benéficos. También pueden infligir daño divino a sus enemigos."
+    },
+    {
+      "id": 6,
+      "nombre": "Paladín",
+      "tipo": "Física/Mágica",
+      "descripcion": "Los paladines son guerreros sagrados que combinan el combate con la magia divina para proteger a sus aliados y luchar contra el mal."
+    },
+    {
+      "id": 7,
+      "nombre": "Brujo",
+      "tipo": "Mágica a distancia",
+      "descripcion": "Los brujos son maestros de las artes oscuras y utilizan la magia demoníaca para dañar a sus enemigos y controlar a los demonios."
+    },
+    {
+      "id": 8,
+      "nombre": "Caballero",
+      "tipo": "Física",
+      "descripcion": "Los caballeros son expertos en el combate con espada y escudo. Son valientes defensores de la justicia y la nobleza."
+    },
+    {
+      "id": 9,
+      "nombre": "Druida",
+      "tipo": "Mágica/Física",
+      "descripcion": "Los druidas son chamánicos y pueden transformarse en animales. Controlan la naturaleza y lanzan hechizos mágicos."
+    },
+    {
+      "id": 10,
+      "nombre": "Chamán",
+      "tipo": "Mágica/Física",
+      "descripcion": "Los chamanes son intermediarios entre el mundo espiritual y el físico. Pueden lanzar hechizos de curación y daño."
+    },
+    {
+      "id": 11,
+      "nombre": "Ladrón",
+      "tipo": "Física",
+      "descripcion": "Los ladrones son expertos en el sigilo y el robo. Pueden abrir cerraduras y desactivar trampas."
+    },
+    {
+      "id": 12,
+      "nombre": "Mago de Sangre",
+      "tipo": "Mágica",
+      "descripcion": "Los magos de sangre utilizan la magia de sangre y la energía arcana para dañar a sus enemigos y mejorar sus propias habilidades."
+    }
+  ],
+  "regions": [
+    {
+      "id": 1,
+      "nombre": "Ciudad de Baldur",
+      "clima": "Templado",
+      "plano": "Material",
+      "ubicacion": "Reinos Olvidados"
+    },
+    {
+      "id": 2,
+      "nombre": "Orgrimmar",
+      "clima": "Árido",
+      "plano": "Material",
+      "ubicacion": "Azeroth (World of Warcraft)"
+    },
+    {
+      "id": 3,
+      "nombre": "Riften",
+      "clima": "Frío",
+      "plano": "Nirn",
+      "ubicacion": "Tamriel (The Elder Scrolls)"
+    },
+    {
+      "id": 4,
+      "nombre": "Tristram",
+      "clima": "Tenebroso",
+      "plano": "Material",
+      "ubicacion": "Sanctuary (Diablo)"
+    },
+    {
+      "id": 5,
+      "nombre": "Zul'Gurub",
+      "clima": "Húmedo",
+      "plano": "Material",
+      "ubicacion": "Azeroth (World of Warcraft)"
+    },
+    {
+      "id": 6,
+      "nombre": "Anvil",
+      "clima": "Costero",
+      "plano": "Material",
+      "ubicacion": "Tamriel (The Elder Scrolls)"
+    },
+    {
+      "id": 7,
+      "nombre": "Stormwind",
+      "clima": "Templado",
+      "plano": "Material",
+      "ubicacion": "Azeroth (World of Warcraft)"
+    },
+    {
+      "id": 8,
+      "nombre": "Solstheim",
+      "clima": "Gélido",
+      "plano": "Nirn",
+      "ubicacion": "Tamriel (The Elder Scrolls)"
+    },
+    {
+      "id": 9,
+      "nombre": "Tranquilidad",
+      "clima": "Despejado",
+      "plano": "Material",
+      "ubicacion": "Reinos Olvidados"
+    },
+    {
+      "id": 10,
+      "nombre": "Nagrand",
+      "clima": "Árido",
+      "plano": "Material",
+      "ubicacion": "Azeroth (World of Warcraft)"
+    },
+    {
+      "id": 11,
+      "nombre": "Morrowind",
+      "clima": "Áspero",
+      "plano": "Nirn",
+      "ubicacion": "Tamriel (The Elder Scrolls)"
+    },
+    {
+      "id": 12,
+      "nombre": "Whiterun",
+      "clima": "Frío",
+      "plano": "Nirn",
+      "ubicacion": "Tamriel (The Elder Scrolls)"
+    },
+    {
+      "id": 13,
+      "nombre": "Ironforge",
+      "clima": "Subterráneo",
+      "plano": "Material",
+      "ubicacion": "Azeroth (World of Warcraft)"
+    },
+    {
+      "id": 14,
+      "nombre": "Calimshan",
+      "clima": "Árido",
+      "plano": "Material",
+      "ubicacion": "Reinos Olvidados"
+    },
+    {
+      "id": 15,
+      "nombre": "Eversong Woods",
+      "clima": "Boscoso",
+      "plano": "Material",
+      "ubicacion": "Azeroth (World of Warcraft)"
+    },
+    {
+      "id": 16,
+      "nombre": "Anvil",
+      "clima": "Costero",
+      "plano": "Material",
+      "ubicacion": "Tamriel (The Elder Scrolls)"
+    },
+    {
+      "id": 17,
+      "nombre": "Astranaar",
+      "clima": "Boscoso",
+      "plano": "Material",
+      "ubicacion": "Azeroth (World of Warcraft)"
+    },
+    {
+      "id": 18,
+      "nombre": "Imperial City",
+      "clima": "Templado",
+      "plano": "Nirn",
+      "ubicacion": "Tamriel (The Elder Scrolls)"
+    },
+    {
+      "id": 19,
+      "nombre": "Blackrock Mountain",
+      "clima": "Volcánico",
+      "plano": "Material",
+      "ubicacion": "Azeroth (World of Warcraft)"
+    },
+    {
+      "id": 20,
+      "nombre": "Anvil",
+      "clima": "Costero",
+      "plano": "Material",
+      "ubicacion": "Tamriel (The Elder Scrolls)"
+    }
+  ]
+}

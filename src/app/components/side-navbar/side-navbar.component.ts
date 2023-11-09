@@ -5,6 +5,7 @@ import { ModalFormComponent } from '../modal-form/modal-form.component';
 import { TableCharactersComponent } from '../table-characters/table-characters.component';
 import { CharactersService } from '../../services/characters-service.service';
 import { filter, map, Subscription, take } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-side-navbar',
   templateUrl: './side-navbar.component.html',
@@ -19,7 +20,7 @@ export class SideNavbarComponent implements OnDestroy {
   @ViewChild(TableCharactersComponent) tableCharactersComponent!: TableCharactersComponent;
   numberOfCharacters: number = this.tableCharactersComponent?.dataSource.length
   totalRegistrosHijo = 0;
-  constructor(private zone: NgZone, private dialog: MatDialog, private charactersService: CharactersService) {
+  constructor(private router: Router, private dialog: MatDialog, private charactersService: CharactersService) {
     this.counterSubscription = this.charactersService.getSeconds().subscribe({
       next: (v) => { this.counter = v },
 
@@ -32,7 +33,10 @@ export class SideNavbarComponent implements OnDestroy {
     if (this.notificationSubscription)
       this.notificationSubscription.unsubscribe();
   }
-
+  logout(){
+    sessionStorage.removeItem("currentUser")
+    this.router.navigate(['/login']);
+  }
 
 
 
