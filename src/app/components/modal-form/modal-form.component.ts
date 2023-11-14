@@ -16,22 +16,25 @@ export class ModalFormComponent  implements OnInit {
   }
 
   ngOnInit() {
-    if(this.data.action ==0)
-    this.characterForm = this.fb.group({
-      nombre: ['', Validators.required],
-      raza: ['', Validators.required],
-      clase: ['', Validators.required],
-      region: ['', Validators.required],
-      principalStat: ['', Validators.required]
-    });
-    else
-    this.characterForm = this.fb.group({
-      nombre: [this.data.character.nombre, Validators.required],
-      raza: [this.data.character.raza, Validators.required],
-      clase: [this.data.character.clase, Validators.required],
-      region: [this.data.character.region, Validators.required],
-      principalStat: [this.data.character.principalStat, Validators.required]
-    });
+    if (this.data && this.data.character && this.data.character.nombre) {
+      
+      this.characterForm = this.fb.group({
+        nombre: [this.data.character.nombre, Validators.required],
+        raza: [this.data.character.raza, Validators.required],
+        clase: [this.data.character.clase, Validators.required],
+        region: [this.data.character.region, Validators.required],
+        principalStat: [this.data.character.principalStat, Validators.required]
+      });
+    } else {
+   
+      this.characterForm = this.fb.group({
+        nombre: ['', Validators.required],
+        raza: ['', Validators.required],
+        clase: ['', Validators.required],
+        region: ['', Validators.required],
+        principalStat: ['', Validators.required]
+      });
+    }
   }
 
   onSubmit() {

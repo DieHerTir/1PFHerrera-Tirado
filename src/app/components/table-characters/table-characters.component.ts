@@ -32,12 +32,16 @@ export class TableCharactersComponent {
     private cdr: ChangeDetectorRef, 
     private dialog: MatDialog, 
     private characterService:CharactersService ) {
+      
       this.characters$ = this.characterService.getCharacters()
-        this.characters$.subscribe(data => {
-          console.log(data)
-      this.characters = data; 
-      this.dataSource = data
-    });
+     
+if (this.characters$) {
+  this.characters$.subscribe(data => {
+    console.log(data);
+    this.characters = data; 
+    this.dataSource = data;
+  });
+}
     
   }
   

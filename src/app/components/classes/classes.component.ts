@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ClassesService } from '../../services/classes.service';
 import { Observable } from 'rxjs';
 export interface Classes{
@@ -11,13 +11,16 @@ export interface Classes{
   templateUrl: './classes.component.html',
   styleUrls: ['./classes.component.scss']
 })
-export class ClassesComponent {
+export class ClassesComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'tipo', 'descripcion'];
   classe$!:Observable<Object>
   classes!:any
   loader =false
-  constructor(ClassesService:ClassesService){
-    this.classe$ = ClassesService.getClasses()
+  constructor(private ClassesService:ClassesService){
+   
+  } 
+  ngOnInit(): void {
+    this.classe$ = this.ClassesService.getClasses()
     this.classe$.subscribe(data=>{
       this.classes = data
     })
